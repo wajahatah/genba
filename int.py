@@ -49,15 +49,16 @@ while cap.isOpened():
                     # Get the data attribute, which contains x, y, and confidence values
                     keypoints_data = keypoints.data
                     for person_idx, person_keypoints in enumerate(keypoints_data):
-                        keypoint_list = []
+                        # keypoint_list = []
 
                         for kp_idx, keypoint in enumerate(person_keypoints):
-                            x, y, confidence = keypoint[0].item(), keypoint[1].item(), keypoint[2].item()
-                            keypoint_list.append((x,y,confidence))
+                            cx, cy, confidence = keypoint[0].item(), keypoint[1].item(), keypoint[2].item()
+                            # keypoint_list.append((x,y,confidence))
+                            x,y = int(cx + x1), int(cy + y1)
 
                             cv2.circle(crop_frame, (int(x), int(y)), 5, (0, 255,0), -1)
 
-            cv2.imshow("Cropped Pose", crop_frame)
+            # cv2.imshow("Cropped Pose", crop_frame)
             # For each pose detection, extract keypoints and map them to original frame coordinates
             # for pose in pose_results:
             #         keypoints = pose.keypoints.xy
