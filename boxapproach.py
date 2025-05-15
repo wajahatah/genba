@@ -83,8 +83,8 @@ while cap.isOpened():
         # frame_for_detection = frame.copy()
 
         # Run the detector on the pristine copy
-    person_boxes = []
-    paddle_boxes = []
+    person_box = []
+    paddle_box = []
 
     results = detector(frame)
     
@@ -112,11 +112,11 @@ while cap.isOpened():
             # cv2.circle(frame, (int(x1), int(y2)), 2, (0, 255, 0), -1)
             # cv2.circle(frame, (int(x2), int(y1)), 2, (0, 255, 0), -1)
             # cv2.circle(frame, (int(x2), int(y2)), 2, (0, 255, 0), -1)
-            # person_box = [x1, y1, x2, y2]
-            person_boxes.append([x1, y1, x2, y2])
+            person_box = [x1, y1, x2, y2]
+            # person_boxes.append([x1, y1, x2, y2])
             hmx = int((x1+x2)/2)
             cv2.circle(frame, (int(hmx), (int(y1) + 10)), 5, (150, 110, 135), -1)
-            print(f"Person box: {person_boxes}")
+            print(f"Person box: {person_box}")
 
         # if label.lower() == "paddle":
         if label == "paddle":
@@ -126,11 +126,11 @@ while cap.isOpened():
             # cv2.circle(frame, (int(x1), int(y2)), 2, (0, 255, 0), -1)
             # cv2.circle(frame, (int(x2), int(y1)), 2, (0, 255, 0), -1)
             # cv2.circle(frame, (int(x2), int(y2)), 2, (0, 255, 0), -1)
-            # paddle_box = [x1, y1, x2, y2]
-            paddle_boxes.append([x1, y1, x2, y2])
+            paddle_box = [x1, y1, x2, y2]
+            # paddle_boxes.append([x1, y1, x2, y2])
             rmy = int((y1+y2)/2)
             cv2.circle(frame, ((int(x2) - 10), int(rmy)), 5, (205, 220, 210), -1)
-            print(f"Paddle box: {paddle_boxes}")
+            print(f"Paddle box: {paddle_box}")
 
     # Check if a paddle is in hand
     # if person_box is not None and paddle_box is not None:
@@ -148,7 +148,7 @@ while cap.isOpened():
     cv2.imshow("Video Inference", frame)
     
     # Press 'q' to exit the video stream
-    if cv2.waitKey(1) & 0xFF == ord('q'):
+    if cv2.waitKey(0) & 0xFF == ord('q'):
         break
 
     frame_count += 1
