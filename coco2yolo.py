@@ -3,7 +3,7 @@ import zipfile
 import json
 
 # === CONFIGURATION ===
-input_dir = "C:/wajahat/personal/genba/genba_kp/zip"  # Folder containing ZIP files
+input_dir = "C:/wajahat/personal/genba/genba_kp"  # Folder containing ZIP files
 output_root = "C:/wajahat/personal/genba/genba_kp"  # Where ZIPs will be extracted
 # "C:\wajahat\personal\genba\genba_kp\zip"
 
