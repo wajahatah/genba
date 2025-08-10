@@ -1,0 +1,12 @@
+*.jpg
+*.png
+*.npy
+*.zip
+*.txt
+*.PNG
+*.json
+*.pt
+*.mp4
+*args.yaml
+*.csv
+*.cache
